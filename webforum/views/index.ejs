@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <% include ./partials/head %>
+    <body>
+        <% include ./partials/header %>
+
+    
+            <div class="row">
+                <div class="col-md-10 initial">
+                    <table class="table table-striped">
+                        <% for(var i=0; i<parsedThreads.length; i++) {%>
+                        
+                        <tr><td><label><a href="/thread?threadId=<%= parsedThreads[i]._id %>"><%= parsedThreads[i].title %></a></label></td><td><a href="/user/<%= parsedThreads[i].username %>"><%= parsedThreads[i].username %></a></td></tr>
+                        <% } %>
+                    </table>
+                </div>
+                <% include ./partials/sidebar %>
+            </div>
+        
+
+
+    </body>
+</html>

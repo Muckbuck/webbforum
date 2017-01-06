@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <% include ./partials/head %>
+    <body>
+    <% include ./partials/header %>
+
+
+
+                <div class="col-md-10 initial">
+                    <div id="wrapper">
+
+                        <label><%= parsedThread.title %></label>
+                        <table class="table table-striped"><tr><td><%= parsedThread.threadStart %></td></tr></table>
+
+                          <form action="/comment?commentId=<%= parsedThread._id %>" method="post">
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Write a comment" name="commentBody" rows="5"></textarea>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-lg">Submit</button>
+                        </form>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        </div>
+
+
+
+
+
+                            <% for(var i=0; i<comments.length; i++) {%>
+                                <div class="well">
+                                    <%= comments[i].commentBody %> <button class="replyButton">reply</button>
+                                     <form action="/reply?parentId=<%= comments[i]._id %>" method="post">
+                                        <div class="form-group reply">
+                                            <textarea class="form-control" placeholder="Write a reply" name="replyBody" rows="5"></textarea>
+                                            <button type="submit" class="btn btn-lg">Submit</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            <% } %>
+                            
+
+
+
+
+            </div>
+                <% include ./partials/sidebar %>
+            </div>
+
+
+
+    </body>
+</html>
