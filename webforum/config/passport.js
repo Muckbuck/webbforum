@@ -31,6 +31,7 @@ module.exports = function(passport){
 
                     newUser.username = username;
                     newUser.password = newUser.hashPwd(password);
+                    newUser.email = req.body.email;
 
                     newUser.save(function(err){
                         if(err)
@@ -39,7 +40,7 @@ module.exports = function(passport){
                     });
                 }
             });
-            
+
         });
     }))
 
@@ -55,7 +56,7 @@ module.exports = function(passport){
                     return done(null, false);
                 if(!user.compareHash(password))
                     return done(null, false);
-                
+
                 return done(null, user);
             });
         }));

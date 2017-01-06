@@ -39,13 +39,25 @@ module.exports = function(app, Schema){
         var username = req.user.username;
         threadModel.count({username: username}, function(err, count){
             console.log(count)
-            if(count < 0){
-              res.render()
+            if(count == 0){
+              console.log('couldnt find any threads');
+              res.render('profile', {username: username});
+            }
+            else{
+              threadModel.find({username:username}, function(err, threads){
+              var stringifiedThreads = JSON.stringify(threads);
+              var parsedThreads = JSON.parse(stringifiedThreads);
+              res.render('profile', {threads: parsedThreads, username:username})
+              console.log(parsedThreads)
+
+              });
             }
 
 
+
+
         });
-        
+
 
 
     });

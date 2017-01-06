@@ -9,7 +9,7 @@ body{
 .navbar.navbar-default{background-color:#373737;}
 .col-md-2{background-color: #FAFAFF; padding: 2%; margin: 0; height: 100%;}
 
-.col-md-10{padding: 2%;} 
+.col-md-10{padding: 2%;}
 
 
 #wrapper{width:50%;}
@@ -17,5 +17,3 @@ body{
 .well{border-left-color: #373737; border-left-width:1em; border-radius: 0; margin-bottom: 0; margin-top: 0; border-bottom:none; position: relative;}
 
 .form-group.reply{display: none;}
-
-

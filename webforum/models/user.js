@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     username: String,
     password: String,
-    mail: String
-    
+    email: String
+
 });
 
 userSchema.methods.hashPwd = function(password){
@@ -16,6 +16,3 @@ userSchema.methods.compareHash = function(password){
 }
 
 module.exports = mongoose.model('User', userSchema);
-
-    
-    
