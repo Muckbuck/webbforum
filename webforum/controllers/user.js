@@ -39,10 +39,13 @@ module.exports = function(app, Schema){
         var username = req.user.username;
         threadModel.count({username: username}, function(err, count){
             console.log(count)
+            if(count < 0){
+              res.render()
+            }
 
 
         });
-
+        
 
 
     });
